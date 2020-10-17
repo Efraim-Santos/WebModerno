@@ -6,11 +6,9 @@ export function onLoadHtmlSucess(callback) {
     }
 }
 
-function loadIncludes(parent){
+function loadIncludes(){
     let elemento = document.querySelectorAll('[include]')
-
-    console.log(elemento)
-    if(elemento.length != 0){
+    if(elemento.length){
         elemento.forEach(e => {
             const url = e.getAttribute('include')
             fetch(url)
@@ -18,10 +16,7 @@ function loadIncludes(parent){
                 .then(html => {
                     e.innerHTML = html
                     e.removeAttribute('include')
-                    // loadHtmlSucessCallbacks.forEach(
-                    //     callback => callback()
-                    // )
-                    loadIncludes(e)
+                    loadIncludes(e) 
                 })
         })
     }
