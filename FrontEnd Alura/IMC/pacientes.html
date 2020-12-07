@@ -6,7 +6,6 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
-    <script src='js/formulario.js'></script>
 </head>
 <body>
     <div class="navbar">
@@ -39,23 +38,25 @@
             <form action="">
                 <div>
                     <label for="">Nome:</label>
-                    <input type="text" placeholder="Digite o nome do seu paciente">
+                    <input type="text" placeholder="Digite o nome do seu paciente" id="nome">
                 </div>
                 <div>
                     <label for="">Peso:</label>
-                    <input type="number" placeholder="Digite o peso do seu paciente">
+                    <input type="number" placeholder="Digite o peso do seu paciente" id="peso">
                 </div>
                 <div>
                     <label for="">Altura:</label>
-                    <input type="text" placeholder="Digite o altura do seu paciente">
+                    <input type="number" placeholder="Digite o altura do seu paciente" id="altura">
                 </div>
                 <div>
                     <label for="">% de Gordura:</label>
-                    <input type="text" placeholder="Digite o porcetagem de gordura do seu paciente">
+                    <input type="number" placeholder="Digite o porcetagem de gordura do seu paciente" id="gordura">
                 </div>
                 <button id="add">Adicionar</button>
+                
             </form>
         </section>
     </div>
 </body>
+<script src='js/formulario.js'></script>
 </html>
