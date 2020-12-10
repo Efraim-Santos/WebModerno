@@ -63,3 +63,11 @@ form button{
     background-color: #4361ee;
     border: none;
 }
+#validador {
+    display: none;
+    color: #000000;
+    width: 30%;
+    background-color: #e63946;
+    padding: 10px;
+    border-radius: 10px;
+}
