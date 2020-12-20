@@ -13,6 +13,7 @@ adicionar.addEventListener("click", (event)=>{
     
     form.reset();
 })
+// Filtrar paciente
 filtro.addEventListener("input", function(){
     let nomes = document.querySelectorAll(".info-nome")
     let linhas = document.querySelectorAll(".paciente") 
