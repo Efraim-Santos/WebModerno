@@ -16,22 +16,39 @@ adicionar.addEventListener("click", (event)=>{
 filtro.addEventListener("input", function(){
     let nomes = document.querySelectorAll(".info-nome")
     let linhas = document.querySelectorAll(".paciente") 
-    let expressao = new RegExp(this.value, "i")
+   
+    //******* Com expressão regular *********
+
+    // let expressao = new RegExp(this.value, "i")
+  
+    // if(this.value.length > 0){
+    //     for (let i = 0; i < nomes.length; i++) {           
+    //        linhas[i].style.display = "none"
+    //         if(expressao.test(nomes[i].textContent)){
+    //             linhas[i].style.display = "table-row" 
+    //         }
+    //     }
+    // }else {
+    //     for (let i = 0; i < linhas.length; i++) {
+    //         linhas[i].style.display = "table-row"  
+    //     }
+    // }
     
+    // Usando subString
     if(this.value.length > 0){
-        for (let i = 0; i < nomes.length; i++) {
-           
+        for (let i = 0; i < nomes.length; i++) { 
             linhas[i].style.display = "none"
-           
-            if(expressao.test(nomes[i].textContent)){
+            let texto = nomes[i].textContent
+            texto = texto.substring(0, this.value.length)
+            if(this.value == texto){
                 linhas[i].style.display = "table-row" 
             }
         }
-    }else {
+    }else{
         for (let i = 0; i < linhas.length; i++) {
             linhas[i].style.display = "table-row"  
         }
-    }
+    } 
 })
 //Valida se existe paciente com os mesmos dados
 function validarRepedtido(nome, peso, altura, gordura){
