@@ -35,8 +35,6 @@ function getInformacoes(){
     let peso = document.querySelector("#peso").value
     let altura = document.querySelector("#altura").value
     let gordura = document.querySelector("#gordura").value
-  
-   let validou = validarInfo(nome, peso, altura, gordura)
 
    if(validarInfo(nome, peso, altura, gordura)){
         if (!(validarRepedtido(nome, peso, altura, gordura))){
