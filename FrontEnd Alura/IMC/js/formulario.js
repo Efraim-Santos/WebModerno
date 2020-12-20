@@ -1,4 +1,5 @@
 var adicionar = document.querySelector("#add")
+var filtro = document.querySelector("#filtre")
 
 adicionar.addEventListener("click", (event)=>{
     
@@ -11,6 +12,26 @@ adicionar.addEventListener("click", (event)=>{
     getInformacoes() ? pacientes.appendChild(getInformacoes()) : false
     
     form.reset();
+})
+filtro.addEventListener("input", function(){
+    let nomes = document.querySelectorAll(".info-nome")
+    let linhas = document.querySelectorAll(".paciente") 
+    let expressao = new RegExp(this.value, "i")
+    
+    if(this.value.length > 0){
+        for (let i = 0; i < nomes.length; i++) {
+           
+            linhas[i].style.display = "none"
+           
+            if(expressao.test(nomes[i].textContent)){
+                linhas[i].style.display = "table-row" 
+            }
+        }
+    }else {
+        for (let i = 0; i < linhas.length; i++) {
+            linhas[i].style.display = "table-row"  
+        }
+    }
 })
 //Valida se existe paciente com os mesmos dados
 function validarRepedtido(nome, peso, altura, gordura){
@@ -117,6 +138,7 @@ function validarGordura(gordura){
 //Crio os elementos html e já insiro o valor do IMC
 function criarElemento(nome, peso, altura, gordura){
     let linha = document.createElement("tr")
+    linha.classList.add("paciente")
     let linhaNome = document.createElement("td")
     linhaNome.classList.add("info-nome")
     let linhaPeso = document.createElement("td")
