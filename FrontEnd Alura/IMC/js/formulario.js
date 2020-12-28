@@ -9,8 +9,8 @@ adicionar.addEventListener("click", (event)=>{
     var validador = document.querySelector("#validador")
     let form = document.querySelector("form")
 
-    getInformacoes() ? pacientes.appendChild(getInformacoes()) : false
-    
+    getInformacoes ? pacientes.appendChild(getInformacoes()) : false
+
     form.reset();
 })
 // Filtrar paciente
@@ -41,6 +41,7 @@ filtro.addEventListener("input", function(){
             linhas[i].style.display = "none"
             let texto = nomes[i].textContent
             texto = texto.substring(0, this.value.length)
+            texto = texto.toLocaleLowerCase()
             if(this.value == texto){
                 linhas[i].style.display = "table-row" 
             }
@@ -180,4 +181,18 @@ function criarElemento(nome, peso, altura, gordura){
     linha.appendChild(linhaImc)
 
     return linha
+}
+
+function adicionarPaciente(nome, peso, altura, gordura){
+    if(validarInfo(nome, peso, altura, gordura)){
+        if (!(validarRepedtido(nome, peso, altura, gordura))){
+            validador.style.display = "none"
+
+            let pacientes = document.querySelector("#tabela-pacientes")
+            
+            pacientes.appendChild(criarElemento(nome, peso, altura, gordura)) 
+        }
+   }else {
+       return false
+   }
 }
