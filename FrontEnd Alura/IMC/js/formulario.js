@@ -13,6 +13,7 @@ adicionar.addEventListener("click", (event)=>{
 
     form.reset();
 })
+
 // Filtrar paciente
 filtro.addEventListener("input", function(){
     let nomes = document.querySelectorAll(".info-nome")
@@ -106,6 +107,12 @@ function validarInfo(nome, peso, altura, gordura){
             return false
         }
     }else{
+        nome ? nome : erros.push("O nome não pode ser em branco!")
+        peso ? peso : erros.push("O peso não pode ser em branco!")
+        altura ? altura : erros.push("A altura não pode ser em branco!")
+        gordura ? gordura : erros.push("A gordura não pode ser em branco!")
+        
+        imprimirErros(erros, validador)
         
         return false
     }
