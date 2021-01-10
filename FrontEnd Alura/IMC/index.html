@@ -23,17 +23,17 @@
                     <th>Nome</th>
                     <th>Peso(kg)</th>
                     <th>Altura(m)</th>
-                    <th>Gordura Corporal(%)</th>
                     <th>IMC</th>
+                    <th>Resultado</th>
                 </tr>
             </thead>
             <tbody id="tabela-pacientes">
                 <tr class="paciente" id="primeiro-paciente">
                     <td class="info-nome">Paulo</td>
-                    <td class="info-peso">100</td>
-                    <td class="info-altura">2.00</td>
-                    <td class="info-gordura">10</td>
+                    <td class="info-peso">100 Kg</td>
+                    <td class="info-altura">2.00 M</td>
                     <td class="info-imc">25.00</td>
+                    <td class="info-resultado">Normal, Obesidade 0</td>
                 </tr>
             </tbody>
         </table>
@@ -54,10 +54,6 @@
                     <input type="number" placeholder="Digite o altura do seu paciente" id="altura">
                 </div>
                 <div>
-                    <label for="">% de Gordura:*</label>
-                    <input type="number" placeholder="Digite o porcetagem de gordura do seu paciente" id="gordura">
-                </div>
-                <div>
                     <button id="add">Adicionar</button>
                     <button id="buscar">Buscar Pacientes</button>
                 </div>
@@ -65,6 +61,6 @@
         </section>
     </div>
 </body>
-<script src='js/formulario2.js'></script>
-<script src='js/buscarPacientes.js'></script>
+<script src='js/formularioObject.js'></script>
+<script src='js/buscarPacientesFetch.js'></script>
 </html>
