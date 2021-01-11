@@ -12,7 +12,6 @@ buscar.addEventListener("click", event => {
         .then(res => res.json())
         .then(res => {
             res.map(val => {
-                console.log(val.nome);
                 pacientes.nome = val.nome;
                 pacientes.peso = val.peso;
                 pacientes.altura = val.altura;

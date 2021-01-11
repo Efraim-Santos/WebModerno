@@ -27,9 +27,6 @@ let pacientes = {
         this.peso = document.querySelector("#peso").value;
         this.altura = document.querySelector("#altura").value;
     },
-    setInformacoes(...valores){
-
-    },
     // Obtem e Valida a Nome
     getNome(){
        if(this.nome) {
@@ -49,7 +46,6 @@ let pacientes = {
         }else{
             this.erros.push("O peso não pode ser em branco!");
         }
-        
     },
     // Obtem e Valida a altura
     getAltura() {
@@ -97,13 +93,14 @@ let pacientes = {
         this.validador.style.display = "block";
         erros.forEach((valor) => {
             imprimir += `${valor} <br>`;
-            this.validadoreste.innerHTML = imprimir;
+            this.validador.innerHTML = imprimir;
         })    
     },
     //Cria o elemento da tabela e adiciona
     adicionarElementos(){
         let tabelaPacientes = document.querySelector("#tabela-pacientes");
-        const linhaTabela = document.createElement("tr")
+        const linhaTabela = document.createElement("tr");
+        linhaTabela.classList.add("paciente");
         let montarTabela = `
             <td class="info-nome">${this.nome}</td>
             <td class="info-peso">${this.peso} Kg</td>
@@ -116,10 +113,13 @@ let pacientes = {
     },
     validarRepetido(...valores){
         let nomes = document.querySelectorAll(".info-nome");
-        const pesos = document.querySelectorAll(".info-peso");
-        const alturas = document.querySelectorAll(".info-altura");
+        let pesos = document.querySelectorAll(".info-peso");
+        let alturas = document.querySelectorAll(".info-altura");
+        let peso,altura;
         for (let i = 0; i < nomes.length; i++) {
-            if((nomes[i].textContent == valores[0]) && (pesos[i].textContent == valores[1]) && (alturas[i].textContent == valores[2])){
+            peso = pesos[i].textContent.replace(' Kg', '');
+            altura = alturas[i].textContent.replace(' M', '');
+            if((nomes[i].textContent == valores[0]) && (peso == valores[1]) && (altura == valores[2])){
                 this.erros.push("Paciente já foi adicionado!");
                 this.imprimirErros(this.erros);
                 return true;
@@ -139,4 +139,24 @@ adicionar.addEventListener("click", (event) => {
 
     pacientes.start();
 
+});
+
+const filtro = document.querySelector("#filtre");
+
+filtro.addEventListener("input", function (){
+    const nomes = document.querySelectorAll(".info-nome");
+    const linhas = document.querySelectorAll(".paciente");
+    const expressao = new RegExp(this.value, "i");
+    if(this.value.length > 0){
+        for (let i = 0; i < nomes.length; i++) {           
+            linhas[i].style.display = "none";
+            if(expressao.test(nomes[i].textContent)){
+                linhas[i].style.display = "table-row" ;
+            }
+        }
+    }else {
+        for (let i = 0; i < linhas.length; i++) {
+            linhas[i].style.display = "table-row";  
+        }
+    }
 });
