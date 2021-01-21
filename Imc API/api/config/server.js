@@ -8,6 +8,8 @@ app.get("/pacientes", (req, res) => {
     res.json(data);
 });
 
+app.listen(3000)
+
 // app.get("/pacientes/:id", (req, res)=>{
 //     const { id } = req.params;
 //     const pacientes = data.find(valor => valor.id == id);
@@ -34,5 +36,3 @@ app.get("/pacientes", (req, res) => {
 
 //     res.json(clientsFiltered);
 // });
-
-app.listen(3000)
