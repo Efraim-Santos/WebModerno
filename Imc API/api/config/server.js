@@ -4,7 +4,7 @@ const data = require("../data/pacientes.json");
 
 app.use(express.json());
 
-app.get("/pacientes", (req, res) => {
+app.get("/", (req, res) => {
     res.json(data);
 });
 
