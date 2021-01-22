@@ -2,7 +2,7 @@ const data = require("../data/pacientes.json");
 
 module.exports = app => {
     app.get("/pacientes", (req, res) => {
-        res.json(data);
+        res.json("Funcionando");
     });
 };
 
