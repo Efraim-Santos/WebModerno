@@ -1,7 +1,7 @@
 const data = require("../data/pacientes.json");
 
 module.exports = app => {
-    app.get("/", (req, res) => {
+    app.get("/pacientes", (req, res) => {
         res.json(data);
     });
 };
