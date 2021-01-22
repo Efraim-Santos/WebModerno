@@ -1,6 +1,6 @@
 
 module.exports = () => {
-    let pacientes = [
+    return [
         {
           "nome": "Jéssica",
           "peso": 47,
