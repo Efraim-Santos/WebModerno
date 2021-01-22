@@ -1,7 +1,7 @@
-const express = require('express');
-const app = express();
+// const express = require('express');
+// const app = express();
 
-app.use(express.json());
+// app.use(express.json());
 
 let pacientes = [
     {
@@ -55,6 +55,10 @@ let pacientes = [
     }
   ]
 
-app.get("/pacientes", (req, res) => {
-    res.json();
-});
+// app.get("/pacientes", (req, res) => {
+//     res.json();
+// });
+
+module.exports = (req, res) => {
+    res.json(pacientes)
+  }
