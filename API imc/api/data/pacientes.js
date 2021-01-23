@@ -1,7 +1,7 @@
 const arquivoJson = require('./arquivoPacientes.json');
 console.log(arquivoJson);
 module.exports = () => {
-    return [
+    return [ 
         {
           "nome": "Jéssica",    
           "peso": 47,
