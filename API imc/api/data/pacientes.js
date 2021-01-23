@@ -1,8 +1,9 @@
-
+const pacientes = require('./pacientes.json');
+console.log(pacientes);
 module.exports = () => {
     return [
         {
-          "nome": "Jéssica",
+          "nome": "Jéssica",    
           "peso": 47,
           "altura": 1.54,
           "gordura": 17,
