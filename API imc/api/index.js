@@ -14,7 +14,7 @@ app.get('/', (req, res)=>{
     res.json(pacientes());
 });
 
-app.listen(3000);
+// app.listen(3000);
 
 // module.exports = (req, res) => {
 //     res.json(pacientes)
