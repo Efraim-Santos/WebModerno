@@ -11,11 +11,12 @@ app.get('/', (req, res)=>{
     // console.log("aqui" + JSON.stringify(pacientes()));
     // console.log("type" + typeof(JSON.stringify(pacientes())));
     // console.log(dadosJson);
-    res.json(pacientes());
+    // res.json(pacientes());
+    res.send(JSON.stringify(pacientes()));
 });
 
 // app.listen(3000);
 
 // module.exports = (req, res) => {
 //     res.json(pacientes)
-//   }
+//   }  
