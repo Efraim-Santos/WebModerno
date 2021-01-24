@@ -1,5 +1,3 @@
-const arquivoJson = require('./arquivoPacientes.json');
-console.log(arquivoJson);
 module.exports = () => {
     return [ 
         {

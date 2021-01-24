@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const pacientes = require('./data/pacientes.js');
+const dados = require('./arquivoPacientes.json');
 
 
 app.use(express.json());
@@ -9,7 +10,7 @@ app.use(express.json());
 app.get('/', (req, res)=>{
     // console.log("aqui" + JSON.stringify(pacientes()));
     // console.log("type" + typeof(JSON.stringify(pacientes())));
-    // console.log("type" + pacientes());
+    console.log(dados);
     res.json(pacientes());
 });
 
