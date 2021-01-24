@@ -12,7 +12,8 @@ app.get('/', (req, res)=>{
     // console.log("type" + typeof(JSON.stringify(pacientes())));
     // console.log(dadosJson);
     // res.json(pacientes());
-    res.send(JSON.stringify(pacientes()));
+
+    res.send(pacientes());
 });
 
 // app.listen(3000);
