@@ -6,7 +6,7 @@ buscar.addEventListener("click", event => {
 
     event.preventDefault();
 
-    const url = "https://api-pacientes.herokuapp.com/pacientes";
+    const url = "https://imc-rest-api.herokuapp.com/pacientes";
 
     fetch(url) 
         .then(res => res.json())
