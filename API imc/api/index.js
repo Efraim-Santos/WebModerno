@@ -8,4 +8,4 @@ app.get('/', (req, res)=>{
     res.json( paciente() );
 });
 
-app.listen(3000);
+// app.listen(3000);
