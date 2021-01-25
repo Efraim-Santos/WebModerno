@@ -5,7 +5,8 @@ buscar.addEventListener("click", event => {
     const validador = pacientes.validador;
 
     event.preventDefault();
-
+    
+    //Api
     const url = "https://imc-rest-api.herokuapp.com/pacientes";
 
     fetch(url) 
