@@ -49,5 +49,5 @@ module.exports = () => {
           "gordura": 19,
           "imc": 22.79
         }
-    ];
+    ]
 }
