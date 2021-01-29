@@ -66,8 +66,10 @@ button{
     background-color: #4361ee;
     border: none;
 }
-button#buscar{
-    float: right  !important;
+button#buscar,
+button#salvar{
+    float: right !important;
+    margin-right: 10px;
 }
 #validador {
     display: none;
