@@ -3,9 +3,9 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Aparecida Nutricionista</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='src/css/style.css'>
 </head>
 <body>
     <div class="navbar">
@@ -55,13 +55,16 @@
                 </div>
                 <div>
                     <button id="add">Adicionar</button>
-                    <button id="salvar">Salvar</button>
-                    <button id="buscar">Buscar Pacientes</button>
+                    <button id="salvar" onclick="`${Bpacientes.salvandoPaciente()}`">Salvar</button>
+                    <button id="buscar" onclick="`${Bpacientes.buscarPaciente()}`">Buscar Pacientes</button>
                 </div>
             </form>
         </section>
     </div>
 </body>
-<script src='js/formularioObject.js'></script>
-<script src='js/buscarPacientesFetch.js'></script>
+<script src='src/js/formularioObject.js'></script>
+<script src='src/js/buscarPacientesFetch.js'></script>
+<Script>
+    const Bpacientes = new BuscarPacienteFetch();  
+</Script>
 </html>

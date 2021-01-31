@@ -6,6 +6,8 @@ let pacientes = {
     resultado: "",
     erros: [],
     validador: document.querySelector("#validador"),
+    form: document.querySelector("form"),
+    deletarPaciente: true,
     //Da o start
     start(){
         this.getInformacoes();
@@ -17,7 +19,7 @@ let pacientes = {
     },
     //Limpar array de erros
     limparArray(){
-        this.erros.map((value, indice) => {
+        this.erros.forEach((value, indice) => {
             this.erros.splice(indice);
         });
     },
@@ -82,9 +84,8 @@ let pacientes = {
         }else if((this.validarRepetido(this.nome, this.peso, this.altura)) == false){
             this.calculaIMC();
             this.adicionarElementos();
-            const form = document.querySelector("form")
             this.validador.style.display = "none";
-            form.reset();
+            this.form.reset();
         }   
     },
     //Imprime os erros, caso tenha
@@ -101,13 +102,24 @@ let pacientes = {
         let tabelaPacientes = document.querySelector("#tabela-pacientes");
         const linhaTabela = document.createElement("tr");
         linhaTabela.classList.add("paciente");
+        
         let montarTabela = `
             <td class="info-nome">${this.nome}</td>
             <td class="info-peso">${this.peso} Kg</td>
             <td class="info-altura">${this.altura} M</td>
             <td class="info-imc">${this.imc}</td>
-            <td class="info-resultado">${this.resultado}</td>
         `;
+        if(!this.deletarPaciente){
+            montarTabela += `<td class="info-resultado">${this.resultado}</td>`;
+        }else{
+            montarTabela += `
+                <td class="info-resultado">
+                    <span style="display: block;">${this.resultado}</span>
+                    <img src="./src/img/delete.png" onclick="`+"`${Bpacientes.deletarPacientes(event)}`"+`" alt="" style="display: block;">
+                </td>
+            `;
+        }   
+        
         linhaTabela.innerHTML = montarTabela;
         tabelaPacientes.appendChild(linhaTabela);
     },
@@ -115,17 +127,32 @@ let pacientes = {
         let nomes = document.querySelectorAll(".info-nome");
         let pesos = document.querySelectorAll(".info-peso");
         let alturas = document.querySelectorAll(".info-altura");
-        let peso,altura;
+        let resultado = document.querySelectorAll(".info-resultado");
+      
         for (let i = 0; i < nomes.length; i++) {
-            peso = pesos[i].textContent.replace(' Kg', '');
-            altura = alturas[i].textContent.replace(' M', '');
+            let [peso, altura] = this.limparDados(pesos[i], alturas[i]);
             if((nomes[i].textContent == valores[0]) && (peso == valores[1]) && (altura == valores[2])){
                 this.erros.push("Paciente já foi adicionado!");
                 this.imprimirErros(this.erros);
                 return true;
             }
+            
         }
         return false;
+    },
+    limparDados(peso, altura){
+        if (peso) {
+            peso = peso.textContent.replace(' Kg', '');
+        }else if(altura){
+            altura = altura.textContent.replace(' M', '');
+            return Number(altura)
+        }
+        if(altura){
+            altura = altura.textContent.replace(' M', '')
+        }else{
+            return Number(peso);
+        }
+        return [Number(peso),  Number(altura)];
     }
 }
 
