@@ -27,7 +27,10 @@ class BuscarPacienteFetch{
         })
         .then(res => {
             if(res.status == 200){
-                this.validadorStyle(`Paciente salvo com sucesso!`, true);
+                const txt = `Paciente salvo com sucesso! Realize uma busca para visualizar!`
+                let alerta = confirm(txt);
+                if(alerta) document.location.reload(true);
+                    else document.location.reload(true);
             }else{
                 this.validadorStyle(`Erro ao salvar pacientes, pagina quebrada ${res.status} (${res.statusText})`, true);
             }
@@ -35,7 +38,8 @@ class BuscarPacienteFetch{
     }
     
     //Buscando paciente
-    buscarPaciente() {
+    buscarPaciente(event) {
+        event.preventDefault();
         this._getPacientes
             .then(res => res.json())
             .then(res => {
@@ -54,7 +58,8 @@ class BuscarPacienteFetch{
     }
 
     // Salvando paciente
-    salvandoPaciente (){
+    salvandoPaciente (event){
+        event.preventDefault();
         let ultimoElemento = document.querySelector(".paciente:last-child")
         ultimoElemento.style.backgroundColor = "#f4f1de";
         ultimoElemento = ultimoElemento.children;
