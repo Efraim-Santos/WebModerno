@@ -125,7 +125,7 @@ class BuscarPacienteFetch{
                     this.validadorStyle(`Erro ao remover pacientes ${res.status} (${res.statusText})`, true);
                 }
             })
-        linhaEvento.outerHTML = "";
+        // linhaEvento.outerHTML = "";
         
     }
 }
