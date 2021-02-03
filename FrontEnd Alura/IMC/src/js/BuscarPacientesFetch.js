@@ -3,9 +3,9 @@ class BuscarPacienteFetch{
     constructor(){
         this._buscar = document.querySelector("#buscar");
         this._buscar = document.querySelector('#salvar');
-        this._requisicaoGetPacientes = "http://localhost:3000/pacientes";
-        this._requisicaoPostPacientes ="http://localhost:3000/adicionarPaciente";
-        this._requisicaoDeletePacientes ="http://localhost:3000/deletar";
+        this._requisicaoGetPacientes = "https://imc-rest-api.herokuapp.com/pacientes";
+        this._requisicaoPostPacientes ="https://imc-rest-api.herokuapp.com/adicionarPaciente";
+        this._requisicaoDeletePacientes ="https://imc-rest-api.herokuapp.com/deletar";
         this._validador = pacientes.validador; 
         Object.freeze(this);
     }
