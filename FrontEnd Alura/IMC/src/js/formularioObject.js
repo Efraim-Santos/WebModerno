@@ -84,9 +84,16 @@ let pacientes = {
         }else if((this.validarRepetido(this.nome, this.peso, this.altura)) == false){
             this.calculaIMC();
             this.adicionarElementos();
-            this.validador.style.display = "none";
-            this.form.reset();
+            
+            this.erros.push("Paciente foi adicionado, clique em salvar!");
+            this.imprimirErros(this.erros);
+            
+            setTimeout(() => {
+                this.validador.style.display = "none";
+                this.form.reset();
+            }, 3000);
         }   
+        
     },
     //Imprime os erros, caso tenha
     imprimirErros(erros){
