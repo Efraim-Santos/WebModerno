@@ -3,9 +3,9 @@ class BuscarPacienteFetch{
     constructor(){
         this._buscar = document.querySelector("#buscar");
         this._buscar = document.querySelector('#salvar');
-        this._requisicaoGetPacientes = "https://imc-rest-api.herokuapp.com/pacientes";
-        this._requisicaoPostPacientes ="https://imc-rest-api.herokuapp.com/adicionarPaciente";
-        this._requisicaoDeletePacientes ="https://imc-rest-api.herokuapp.com/deletar";
+        this._requisicaoGetPacientes = "http://localhost:3000/pacientes";
+        this._requisicaoPostPacientes ="http://localhost:3000/adicionarPaciente";
+        this._requisicaoDeletePacientes ="http://localhost:3000/deletar";
         this._validador = pacientes.validador; 
         Object.freeze(this);
     }
@@ -121,11 +121,10 @@ class BuscarPacienteFetch{
             .then(res => {
                 if(res.status == 200){
                     this.validadorStyle(`Paciente removido com sucesso!`, true);
+                    linhaEvento.outerHTML = "";
                 }else{
                     this.validadorStyle(`Erro ao remover pacientes ${res.status} (${res.statusText})`, true);
                 }
             })
-        // linhaEvento.outerHTML = "";
-        
     }
 }
